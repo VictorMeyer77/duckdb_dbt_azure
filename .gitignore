@@ -1,0 +1,12 @@
+# working env
+
+.idea/
+.venv/
+requirements.txt
+
+# dbt
+
+target/
+dbt_packages/
+logs/
+.user.yml
