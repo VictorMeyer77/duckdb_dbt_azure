@@ -1,0 +1,58 @@
+
+version: 2
+
+models:
+
+  - name: brz_books_data
+    description: "Bronze layer of books_data"
+    columns:
+      - name: Title
+        description: Book title
+        tests:
+          - unique
+      - name: description
+        description: Description of book
+      - name: authors
+        description: Name of book authors
+      - name: image
+        description: Url for book cover
+      - name: previewLink
+        description: Link to access this book on google Books
+      - name: publisher
+        description: Name of the publisher
+      - name: publishedDate
+        description: The date of publish
+      - name: infoLink
+        description: Link to get more information about the book on google Books
+      - name: categories
+        description: Genres of books
+      - name: ratingsCount
+        description: Averaging rating for book
+      - name: ingest_time
+        description: Process time
+
+  - name: brz_books_rating
+    description: "Bronze layer of books_rating"
+    columns:
+      - name: Id
+        description: The Id of Book
+      - name: Title
+        description: Book title
+      - name: Price
+        description: The price of Book
+      - name: User_id
+        description: Id of user who rate the book
+      - name: profileName
+        description: Name of user who rate the book
+      - name: review/helpfulness
+        description: Helpfulness rating of the review, e.g. 2/3
+      - name: review/score
+        description: Rating from 0 to 5 for the book
+      - name: review/time
+        description: Time of given the review
+      - name: review/summary
+        description: The summary of text review
+      - name: review/text
+        description: The full text of a review
+      - name: ingest_time
+        description: Process time

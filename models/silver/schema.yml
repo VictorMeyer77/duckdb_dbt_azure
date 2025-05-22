@@ -1,0 +1,63 @@
+
+version: 2
+
+models:
+
+  - name: svr_books_data
+    description: "Silver layer of books_data"
+    columns:
+      - name: title
+        description: Book title
+        tests:
+          - unique
+          - not_null
+      - name: description
+        description: Description of book
+      - name: authors
+        description: Name of book authors
+      - name: image
+        description: Url for book cover
+      - name: preview_link
+        description: Link to access this book on google Books
+      - name: publisher
+        description: Name of the publisher
+      - name: published_date
+        description: The date of publish
+      - name: info_link
+        description: Link to get more information about the book on google Books
+      - name: categories
+        description: Genres of books
+      - name: ratings_count
+        description: Averaging rating for book
+      - name: ingest_time
+        description: Process time
+
+  - name: svr_books_rating
+    description: "Silver layer of books_rating"
+    columns:
+      - name: id
+        description: The Id of Book
+        tests:
+          - not_null
+      - name: title
+        description: Book title
+        tests:
+          - not_null
+      - name: price
+        description: The price of Book
+      - name: user_id
+        description: Id of user who rate the book
+      - name: profile_name
+        description: Name of user who rate the book
+      - name: review_helpfulness
+        description: Helpfulness rating of the review, e.g. 2/3
+      - name: review_score
+        description: Rating from 0 to 5 for the book
+      - name: review_time
+        description: Time of given the review
+      - name: review_summary
+        description: The summary of text review
+      - name: review_text
+        description: The full text of a review
+      - name: ingest_time
+        description: Process time

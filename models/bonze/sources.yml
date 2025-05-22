@@ -1,0 +1,58 @@
+sources:
+  - name: raw
+    description: Container with raw data
+    tables:
+      - name: books_data
+        description: >
+          This file contains the details of 212404 books such as genres, authors, cover, description and etc.
+        meta:
+          external_location: "datalake/raw/books_data.csv"
+        columns:
+          - name: Title
+            description: Book title
+            tests:
+              - unique
+          - name: description
+            description: Description of book
+          - name: authors
+            description: Name of book authors
+          - name: image
+            description: Url for book cover
+          - name: previewLink
+            description: Link to access this book on google Books
+          - name: publisher
+            description: Name of the publisher
+          - name: publishedDate
+            description: The date of publish
+          - name: infoLink
+            description: Link to get more information about the book on google Books
+          - name: categories
+            description: Genres of books
+          - name: ratingsCount
+            description: Averaging rating for book
+      - name: books_rating
+        description: >
+          This file has information about 3M book reviews for 212404 unique book and users who gives these reviews for each book.
+        meta:
+          external_location: "datalake/raw/books_rating.csv"
+        columns:
+          - name: Id
+            description: The Id of Book
+          - name: Title
+            description: Book title
+          - name: Price
+            description: The price of Book
+          - name: User_id
+            description: Id of user who rate the book
+          - name: profileName
+            description: Name of user who rate the book
+          - name: review/helpfulness
+            description: Helpfulness rating of the review, e.g. 2/3
+          - name: review/score
+            description: Rating from 0 to 5 for the book
+          - name: review/time
+            description: Time of given the review
+          - name: review/summary
+            description: The summary of text review
+          - name: review/text
+            description: The full text of a review
