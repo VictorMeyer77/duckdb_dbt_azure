@@ -19,5 +19,6 @@ SELECT
     ingest_time,
     TO_TIMESTAMP("review/time") AS review_time
 FROM {{ ref("brz_books_rating") }}
-WHERE id IS NOT NULL
-AND title IS NOT NULL
+WHERE
+    id IS NOT NULL
+    AND title IS NOT NULL

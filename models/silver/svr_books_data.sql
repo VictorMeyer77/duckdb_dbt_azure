@@ -18,6 +18,7 @@ SELECT
     STR_SPLIT_REGEX(REGEXP_REPLACE(authors, '(\[|\]|'')', '', 'g'), ', ')
         AS authors,
     LEFT(publisheddate, 4) AS published_date,
-    REGEXP_REPLACE(categories, '(\[|\]|'')', '', 'g') AS categories
+    STR_SPLIT_REGEX(REGEXP_REPLACE(categories, '(\[|\]|'')', '', 'g'), ', ')
+        AS categories
 FROM {{ ref("brz_books_data") }}
 WHERE title IS NOT NULL
