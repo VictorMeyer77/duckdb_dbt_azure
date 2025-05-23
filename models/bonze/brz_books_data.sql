@@ -7,15 +7,15 @@
 }}
 
 SELECT
-    title,
+    Title,
     description,
     authors,
     image,
-    previewlink,
+    previewLink,
     publisher,
-    publisheddate,
-    infolink,
+    publishedDate,
+    infoLink,
     categories,
-    ratingscount,
+    ratingsCount,
     CURRENT_TIMESTAMP AS ingest_time
 FROM {{ source("raw", "books_data") }}

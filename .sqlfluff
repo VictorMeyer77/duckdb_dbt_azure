@@ -1,3 +1,4 @@
 [sqlfluff]
 
 dialect = duckdb
+exclude_rules = CP02,RF05,AL09,LT09

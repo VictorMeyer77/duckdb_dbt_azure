@@ -7,11 +7,11 @@
 }}
 
 SELECT
-    id,
-    title,
-    price,
-    user_id,
-    profilename,
+    Id,
+    Title,
+    Price,
+    User_id,
+    profileName,
     "review/helpfulness",
     "review/score",
     "review/time",

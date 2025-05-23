@@ -6,12 +6,12 @@
     )
 }}
 
-SELECT
-    id,
-    title,
+SELECT DISTINCT
+    Id AS id,
+    Title AS title,
     price::FLOAT AS price,
-    user_id,
-    profilename AS profile_name,
+    User_id AS user_id,
+    profileName AS profile_name,
     "review/helpfulness" AS review_helpfulness,
     "review/score"::SMALLINT AS review_score,
     "review/summary" AS review_summary,
