@@ -37,8 +37,8 @@ SELECT
     book.published_date,
     publisher.id AS publisher_id,
     ROW_NUMBER() OVER () AS id,
-    LIST(author.id) FILTER (author.id IS NOT NULL) AS author_id, -- noqa
-    LIST(category.id) FILTER (category.id IS NOT NULL) AS category_id -- noqa
+    LIST(author.id) FILTER (author.id IS NOT NULL) AS author_ids, -- noqa
+    LIST(category.id) FILTER (category.id IS NOT NULL) AS category_ids -- noqa
 FROM flatten_book AS book
 LEFT JOIN {{ ref("gld_dim_author") }} AS author
     ON book.author = author.author_name

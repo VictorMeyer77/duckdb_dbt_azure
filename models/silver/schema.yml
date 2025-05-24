@@ -26,7 +26,7 @@ models:
       - name: info_link
         description: Link to get more information about the book on google Books
       - name: categories
-        description: Genres of books
+        description: Genres of book
       - name: ratings_count
         description: Averaging rating for book
       - name: ingest_time

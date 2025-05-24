@@ -7,14 +7,14 @@
 }}
 
 SELECT
-    category_name,
-    ROW_NUMBER() OVER () AS id
+    ROW_NUMBER() OVER () AS id,
+    category_name
 FROM
     (
         SELECT DISTINCT
             TRIM(REGEXP_REPLACE(UNNEST(categories), '"', '', 'g'))
                 AS category_name
         FROM {{ ref("svr_books_data") }}
-        UNION
-        SELECT 'unknown' AS category_name
     )
+UNION
+SELECT -1 AS id, 'unknown' AS category_name

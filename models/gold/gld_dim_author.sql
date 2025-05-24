@@ -7,13 +7,13 @@
 }}
 
 SELECT
-    author_name,
-    ROW_NUMBER() OVER () AS id
+    ROW_NUMBER() OVER () AS id,
+    author_name
 FROM
     (
         SELECT DISTINCT
             TRIM(REGEXP_REPLACE(UNNEST(authors), '"', '', 'g')) AS author_name
         FROM {{ ref("svr_books_data") }}
-        UNION
-        SELECT 'unknown' AS author_name
     )
+UNION
+SELECT -1 AS id, 'unknown' AS author_name

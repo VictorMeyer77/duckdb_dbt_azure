@@ -9,7 +9,7 @@
 SELECT
     dim_user.id AS user_id,
     dim_book.id AS book_id,
-    review_time,
+    rating.review_time,
     HASH(CONCAT(rating.title, rating.review_text)) AS review_id
 FROM {{ ref("svr_books_rating") }} AS rating
 LEFT JOIN {{ ref("gld_dim_book") }} AS dim_book

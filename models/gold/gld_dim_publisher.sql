@@ -7,12 +7,12 @@
 }}
 
 SELECT
-    publisher_name,
-    ROW_NUMBER() OVER () AS id
+    ROW_NUMBER() OVER () AS id,
+    publisher_name
 FROM
     (
         SELECT DISTINCT TRIM(publisher) AS publisher_name
         FROM {{ ref("svr_books_data") }}
-        UNION
-        SELECT 'unknown' AS publisher_name
     )
+UNION
+SELECT -1 AS id, 'unknown' AS publisher_name
