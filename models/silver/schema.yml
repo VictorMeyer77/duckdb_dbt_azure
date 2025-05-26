@@ -6,6 +6,11 @@ models:
   - name: svr_books_data
     description: "Silver layer of books_data"
     columns:
+      - name: id
+        description: Id of book
+        tests:
+          - unique
+          - not_null
       - name: title
         description: Book title
         tests:
@@ -36,8 +41,9 @@ models:
     description: "Silver layer of books_rating"
     columns:
       - name: id
-        description: The Id of Book
+        description: Id of review
         tests:
+          - unique
           - not_null
       - name: title
         description: Book title

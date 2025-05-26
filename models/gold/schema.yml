@@ -76,8 +76,8 @@ models:
   - name: gld_fact_review
     description: "Fact table of reviews"
     columns:
-      - name: review_id
-        description: Foreign key to dim_review
+      - name: id
+        description: Id of review
       - name: user_id
         description: Foreign key to dim_user
       - name: book_id

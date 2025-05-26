@@ -15,6 +15,7 @@ SELECT DISTINCT
     infoLink AS info_link,
     ratingsCount AS ratings_count,
     ingest_time,
+    HASH(Title) AS id,
     STR_SPLIT_REGEX(REGEXP_REPLACE(authors, '(\[|\]|'')', '', 'g'), ', ')
         AS authors,
     LEFT(publishedDate, 4) AS published_date,

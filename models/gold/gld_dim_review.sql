@@ -7,9 +7,9 @@
 }}
 
 SELECT
+    id,
     review_helpfulness AS helpfulness,
     review_score AS score,
     review_summary,
-    review_text,
-    HASH(CONCAT(title, review_text)) AS id
+    review_text
 FROM {{ ref("svr_books_rating") }}
