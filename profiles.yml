@@ -2,12 +2,7 @@ duckdb_dbt_azure:
   outputs:
     dev:
       type: duckdb
-      path: datalake/dbt/test.duckdb
-      threads: 1
-
-    prod:
-      type: duckdb
-      path: datalake/dbt/test.duckdb
+      path: datalake/dbt/books.duckdb
       threads: 1
 
   target: dev

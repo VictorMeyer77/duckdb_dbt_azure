@@ -26,6 +26,8 @@ models:
         description: Link to access this book on google Books
       - name: published_date
         description: The date of publish
+      - name: publisher_id
+        description: Publisher of book
       - name: info_link
         description: Link to get more information about the book on google Books
       - name: author_ids
