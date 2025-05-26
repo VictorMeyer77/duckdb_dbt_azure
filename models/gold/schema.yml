@@ -30,10 +30,22 @@ models:
         description: Publisher of book
       - name: info_link
         description: Link to get more information about the book on google Books
-      - name: author_ids
-        description: Authors of book
-      - name: category_ids
-        description: Genres of book
+
+  - name: gld_dim_book_author
+    description: "Relationship between book and author"
+    columns:
+      - name: book_id
+        description: Id of book
+      - name: author_id
+        description: Id of author
+
+  - name: gld_dim_book_category
+    description: "Relationship between book and category"
+    columns:
+      - name: book_id
+        description: Id of book
+      - name: category_id
+        description: Id of category
 
   - name: gld_dim_category
     description: "Dimension layer of categories"
