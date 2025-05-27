@@ -1,7 +1,7 @@
 {{
     config(
         materialized="external",
-        location="datalake/silver/books_rating.parquet",
+        location="abfs://silver@devduckdbtazsto.blob.core.windows.net/books/books_rating.parquet",
         format="parquet"
     )
 }}

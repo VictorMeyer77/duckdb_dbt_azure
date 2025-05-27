@@ -1,7 +1,7 @@
 # 3rd party CLI for DuckDB
 duckcli>=0.2.1
 
-# Database adapter
+# database adapter
 dbt-duckdb>=1.9.0,<2.0.0
 
 # dbt Core 1.9
@@ -9,3 +9,6 @@ dbt-core>=1.9.0,<1.10.0
 
 # extra features
 sqlfluff>=3.4.0,<4.0.0
+
+# azure extensions
+adlfs>=2024.12.0,<2025.0.0

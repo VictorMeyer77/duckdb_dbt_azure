@@ -6,7 +6,7 @@ sources:
         description: >
           This file contains the details of 212404 books such as genres, authors, cover, description and etc.
         meta:
-          external_location: "datalake/raw/books_data.csv"
+          external_location: "abfs://raw@devduckdbtazsto.blob.core.windows.net/books/books_data.csv"
         columns:
           - name: Title
             description: Book title
@@ -34,7 +34,7 @@ sources:
         description: >
           This file has information about 3M book reviews for 212404 unique book and users who gives these reviews for each book.
         meta:
-          external_location: "datalake/raw/books_rating.csv"
+          external_location: "abfs://raw@devduckdbtazsto.blob.core.windows.net/books/books_rating.csv"
         columns:
           - name: Id
             description: The Id of Book

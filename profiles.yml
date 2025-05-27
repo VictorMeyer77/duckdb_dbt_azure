@@ -2,7 +2,15 @@ duckdb_dbt_azure:
   outputs:
     dev:
       type: duckdb
-      path: datalake/dbt/books.duckdb
+      path: /tmp/books.duckdb
       threads: 1
+      schema: dbt
+      extensions:
+        - parquet
+      filesystems:
+        - fs: abfs
+          anon: false
+          account_name: "devduckdbtazsto"
+          account_key: "<account_key>"
 
   target: dev

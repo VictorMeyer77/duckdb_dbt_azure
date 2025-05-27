@@ -1,7 +1,7 @@
 {{
     config(
         materialized="external",
-        location="datalake/gold/fact_review.parquet",
+        location="abfs://gold@devduckdbtazsto.blob.core.windows.net/books/fact_review.parquet",
         format="parquet"
     )
 }}
