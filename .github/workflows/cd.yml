@@ -1,0 +1,43 @@
+name: CD
+
+on:
+  workflow_dispatch:
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    environment: dev
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      - name: Azure login
+        uses: azure/login@v2
+        with:
+          creds: '{"clientId":"${{ secrets.AZURE_CLIENT_ID }}","clientSecret":"${{ secrets.AZURE_CLIENT_SECRET }}","subscriptionId":"${{ secrets.AZURE_SUBSCRIPTION_ID }}","tenantId":"${{ secrets.AZURE_TENANT_ID }}"}'
+
+      - name: Build and publish image
+        uses: azure/cli@v2
+        with:
+          azcliversion: latest
+          inlineScript: |
+            az acr build --image book_review:v1  \
+            --registry ${{ vars.ENV }}duckdbtazacr \
+            --file Dockerfile .
+
+      - name: Create container instance
+        uses: azure/cli@v2
+        with:
+          azcliversion: latest
+          inlineScript: |
+            az container create --resource-group ${{ vars.ENV }}-duckdbtaz-rg \
+              --name ${{ vars.ENV }}-duckdbtaz-books \
+              --image ${{ vars.ENV }}duckdbtazacr.azurecr.io/book_review:v1 \
+              --os-type Linux \
+              --registry-username ${{ vars.ENV }}duckdbtazacr \
+              --registry-password ${{ secrets.ACR_PASSWORD }}  \
+              --cpu 2 \
+              --memory 8 \
+              --restart-policy OnFailure \
+              --environment-variables STORAGE_ACCOUNT_NAME="${{ vars.ENV }}duckdbtazsto" \
+              --secure-environment-variables STORAGE_ACCOUNT_KEY="${{ secrets.STORAGE_ACCOUNT_KEY }}"
