@@ -10,7 +10,7 @@ duckdb_dbt_azure:
       filesystems:
         - fs: abfs
           anon: false
-          account_name: "devduckdbtazsto"
-          account_key: "<account_key>"
+          account_name: "{{ env_var('STORAGE_ACCOUNT_NAME') }}"
+          account_key: "{{ env_var('STORAGE_ACCOUNT_KEY') }}"
 
   target: dev

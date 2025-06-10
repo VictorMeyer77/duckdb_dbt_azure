@@ -1,7 +1,7 @@
 {{
     config(
         materialized="external",
-        location="abfs://bronze@devduckdbtazsto.blob.core.windows.net/books/books_data.parquet",
+        location="abfs://bronze@{{ env_var('STORAGE_ACCOUNT_NAME') }}.blob.core.windows.net/books/books_data.parquet",
         format="parquet"
     )
 }}
