@@ -2,11 +2,15 @@ name: CD
 
 on:
   workflow_dispatch:
+    inputs:
+      env:
+        type: environment
+        description: "Select the environment"
 
 jobs:
   deploy:
     runs-on: ubuntu-latest
-    environment: dev
+    environment: ${{ inputs.env }}
     steps:
       - name: Checkout
         uses: actions/checkout@v2
