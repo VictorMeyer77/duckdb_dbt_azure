@@ -35,12 +35,6 @@ install:          ## Install the project.
 .PHONY: clean
 clean:            ## Clean working directory.
 	@dbt clean
-	@rm -rf datalake/bronze/*.parquet
-	@rm -rf datalake/silver/*.parquet
-	@rm -rf datalake/gold/*.parquet
-	@rm -rf datalake/dbt/test.duckdb
-	@rm -rf datalake/dbt/target
-	@rm -rf test.duckdb
 	@rm -rf __pycache__
 	@rm -rf .cache
 	@rm -rf .pytest_cache
@@ -70,5 +64,5 @@ run:             ## Launch workflow.
 	@echo "\nExecute and test bronze and silver ...\n"
 	@dbt run --select models/bronze models/silver
 	@dbt test --select models/bronze models/silver
-	@echo "\nExecute and gold ...\n"
+	@echo "\nExecute gold ...\n"
 	@dbt run --select models/gold
