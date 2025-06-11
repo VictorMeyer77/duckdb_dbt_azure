@@ -34,8 +34,8 @@ jobs:
         with:
           azcliversion: latest
           inlineScript: |
-            az container create --resource-group ${{ vars.ENV }}-duckdbtaz-rg \
-              --name ${{ vars.ENV }}-duckdbtaz-books \
+            az container create --resource-group ${{ vars.ENV }}duckdbtazrg \
+              --name ${{ vars.ENV }}duckdbtazaci-books \
               --image ${{ vars.ENV }}duckdbtazacr.azurecr.io/book_review:v1 \
               --os-type Linux \
               --registry-username ${{ vars.ENV }}duckdbtazacr \
