@@ -51,6 +51,6 @@ jobs:
         with:
           azcliversion: latest
           inlineScript: |
-            az role assignment create --role Contributor \ 
+            az role assignment create --role Contributor \
               --scope /subscriptions/${{ secrets.AZURE_SUBSCRIPTION_ID }}/resourceGroups/${{ vars.ENV }}duckdbtazrg/providers/Microsoft.ContainerInstance/containerGroups/${{ vars.ENV }}duckdbtazaci-books \
               --assignee ${{ vars.AUTOMATION_IDENTITY_ID }}
