@@ -38,6 +38,7 @@ jobs:
               --name ${{ vars.ENV }}duckdbtazaci-books \
               --image ${{ vars.ENV }}duckdbtazacr.azurecr.io/book_review:v1 \
               --os-type Linux \
+              --log-analytics-workspace ${{ vars.ENV }}duckdbtazlog
               --registry-username ${{ vars.ENV }}duckdbtazacr \
               --registry-password ${{ secrets.ACR_PASSWORD }}  \
               --cpu 2 \
