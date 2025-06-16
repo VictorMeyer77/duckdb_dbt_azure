@@ -18,7 +18,7 @@ Paired with this infrastructure [repository](https://github.com/VictorMeyer77/du
 ## Context
 
 This project processes the Amazon Books Reviews dataset from [Kaggle](https://www.kaggle.com/datasets/mohamedbakhet/amazon-books-reviews) using a medallion architecture.
-The data flows through bronze, silver, and gold layers, with the gold layer structured according to a Snowflake schema, as outlined below.
+The data flows through bronze, silver, and gold layers, with the gold layer structured according to a snowflake schema, as outlined below.
 
 ![book_review_erd.png](resources/book_review_erd.png)
 
